@@ -50,19 +50,14 @@ Add your screenshots here:
 - Experiment with container queries
 - Optimize images and layout shift
 
-### Useful resources
-- https://piccalil.li/blog/a-modern-css-reset/
-- https://every-layout.dev/
-- https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
-
 ### AI Collaboration
 - Tool used: Microsoft Copilot
 - Supported in structuring README and improving clarity
 
 ## Author
-- **Name:** Hoàng Châu Thế
-- **GitHub:** https://github.com/your-username
-- **Frontend Mentor:** @yourusername
+- **Name:** Châu Thế Hoàng
+- **GitHub:** https://github.com/chamtell/card-component
+- **Frontend Mentor:** @chamtell
 
 ## Acknowledgments
 Special thanks to the Frontend Mentor community for high-quality challenges and feedback.
