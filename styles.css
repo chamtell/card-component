@@ -1,0 +1,196 @@
+
+/* =======================
+   1) Reset css
+   ======================= */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body, h1, h2, h3, h4, p, figure { margin: 0; }
+img { display: block; max-width: 100%; height: auto; }
+button { font: inherit; }
+
+/* =======================
+   2) Design Tokens (Style Guide)
+   ======================= */
+:root {
+  /* Primary */
+  --green-500: hsl(158, 36%, 37%);
+  --green-700: hsl(158, 42%, 18%);
+
+  /* Neutral */
+  --black: hsl(212, 21%, 14%);
+  --grey:  hsl(228, 12%, 48%);
+  --cream: hsl(30, 38%, 92%);
+  --white: hsl(0, 0%, 100%);
+
+  /* Typography */
+  --ff-sans: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --ff-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --fs-body: 14px; /* paragraph */
+
+  /* Radius & Shadow */
+  --radius-lg: 12px;
+  --radius-md: 10px;
+  --shadow-card: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* =======================
+   3) Page layout
+   ======================= */
+body {
+  background: var(--cream);
+  color: var(--grey);
+  font-family: var(--ff-sans);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  display: grid;
+  place-items: center;
+  padding: 24px;            /* mobile padding */
+}
+
+
+/* =======================
+   4) Product Card
+   ======================= */
+.product-card {
+  width: min(100%, 1110px); /* desktop 1440px */
+  max-width: 740px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: var(--shadow-card);
+  isolation: isolate;
+}
+
+/* Media */
+.product-card__media {
+  position: relative;
+  min-height: 100%;
+}
+
+.product-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        
+}
+
+/* Content */
+.product-card__content {
+  padding: 32px;
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+/* Eyebrow / Category */
+.product-card__category {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--grey);
+  font-size: 12px;
+}
+
+/* Title */
+.product-card__title {
+  font-family: var(--ff-serif);
+  font-weight: 700;
+  color: var(--black);
+  font-size: clamp(26px, 2.2vw, 32px);
+  line-height: 1.1;
+}
+
+/* Description */
+.product-card__description {
+  font-family: var(--ff-sans);
+  font-weight: 500;
+  color: var(--grey);
+  font-size: var(--fs-body);
+}
+
+/* Pricing */
+.product-card__price {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.product-card__price--current {
+  font-family: var(--ff-serif);
+  font-weight: 700;
+  font-size: clamp(26px, 2.2vw, 32px);
+  color: var(--green-500);
+}
+
+.product-card__price--previous {
+  color: var(--grey);
+  font-size: 13px;
+  text-decoration: line-through;
+}
+
+/* CTA Button */
+.product-card__cta {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 14px 18px;
+  background: var(--green-500);
+  color: var(--white);
+  font-family: var(--ff-sans);
+  font-weight: 700;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color .2s ease, transform .02s ease;
+}
+
+.product-card__cta:hover {
+  background: var(--green-700);
+}
+
+.product-card__cta:active {
+  transform: translateY(1px);
+}
+
+.product-card__cta:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--green-500), white 25%);
+  outline-offset: 3px; 
+}
+
+.product-card__cta .icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* =======================
+   5) Responsive
+   ======================= */
+
+@media (max-width: 899px) {
+  .product-card {
+    grid-template-columns: 1fr;
+  }
+  .product-card__content {
+    padding: 24px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 599px) {
+  body { padding: 16px; }
+  .product-card { border-radius: var(--radius-md); }
+  .product-card__title { font-size: 26px; } /* baseline mobile */
+}
+
+@media (max-width: 359px) {
+  .product-card__price { gap: 10px; }
+  .product-card__cta { width: 100%; } 
+}
+
+
+
